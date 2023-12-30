@@ -1,21 +1,25 @@
-import React from 'react'
+import React from "react";
 
-const NavBar = ({filterItem, menuList }) => {
+const NavBar = ({ filterItem, menuList }) => {
   return (
     <>
-      <nav className='navbar'>
-      <div className='btn-group'>
-        {menuList.map((curElem) => {
+      <nav className="navbar">
+        <div className="btn-group">
+          {menuList.map((curElem) => {
             return (
-        <button className='btn-group__item' onClick={() => filterItem(curElem)}>{curElem}</button>
-            )
-          })
-        }
-      </div>
-    </nav>
-    {/* <MenuCard menuData={menuData} /> */}
+              <button
+                className="btn-group__item"
+                onClick={() => filterItem(curElem)}
+              >
+                {curElem}
+              </button>
+            );
+          })}
+        </div>
+      </nav>
+      {/* <MenuCard menuData={menuData} /> */}
     </>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
