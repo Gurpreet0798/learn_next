@@ -1,4 +1,4 @@
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 import React, { useState, useEffect } from "react";
 
 // get the local storage data back:-
@@ -22,11 +22,11 @@ const Todo = () => {
   const addItem = () => {
     if (!inputdata) {
       alert("plz fill the data");
-    }else if(inputdata && toggleButton) {
+    } else if (inputdata && toggleButton) {
       setItems(
         items.map((curElem) => {
-          if (curElem.id === isEditItem){
-            return {...curElem, name: inputdata};
+          if (curElem.id === isEditItem) {
+            return { ...curElem, name: inputdata };
           }
           return curElem;
         })
@@ -34,8 +34,7 @@ const Todo = () => {
       setInputdata(" ");
       setIsEditItem(null);
       setToggleButton(false);
-    }
-    else {
+    } else {
       const myNewInputData = {
         id: new Date().getTime().toString(),
         name: inputdata,
@@ -91,22 +90,19 @@ const Todo = () => {
             ></input>
             {/* toggle button */}
             {toggleButton ? (
-              <i className="fa-solid fa-pen-to-square add-btn" onClick={addItem}></i>
+              <i
+                className="fa-solid fa-pen-to-square add-btn"
+                onClick={addItem}
+              ></i>
             ) : (
               <i className="fa-solid fa-plus add-btn" onClick={addItem}></i>
             )}
-
-            {/* <i className="fa-solid fa-plus" onClick={addItem}></i> */}
-            <img
-              src="./images/plus.jpg"
-              width={50}
-              height={50}
-              style={{ marginTop: "20px" }}
-              alt="plus"
+            <i
+              className="fa-solid fa-plus"
+              style={{ background: "white" }}
               onClick={addItem}
-            ></img>
+            ></i>
           </div>
-
 
           {/*Show all items*/}
           <div className="showItems">
@@ -129,7 +125,6 @@ const Todo = () => {
             })}
           </div>
 
-
           {/*Remove all buttons*/}
           <div className="showItems">
             <button
@@ -147,5 +142,5 @@ const Todo = () => {
 };
 
 export default dynamic(() => Promise.resolve(Todo), {
-  ssr: false
-})
+  ssr: false,
+});

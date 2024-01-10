@@ -1,6 +1,7 @@
 //https://api.openweathermap.org/data/2.5/weather?q=pune&appid=c06f509a42f0f86c0e3d5fe075c1be55
 
 import React from "react";
+import dynamic from "next/dynamic";
 
 const Temp = () => {
   return (
@@ -13,7 +14,7 @@ const Temp = () => {
             autoFocus
             id="search"
             className="searchTerm"
-          ></input>
+          />
           <button className="searchButton" type="button">
             Search
           </button>
@@ -38,15 +39,13 @@ const Temp = () => {
         {/* our four 4 column sections in the end */}
         <div className="extra-temp">
           <div className="temp-info-minmax">
-            <div className="two-sided-sections">
-              <p>
-                <i className={"wi wi-sunset"}></i>
-              </p>
-              <p className="extra-info-leftside">
-                19:19 PM <br />
-                Sunset
-              </p>
-            </div>
+            <p>
+              <i style={{ color: "#00f" }} className={"wi wi-sunset"}></i>
+            </p>
+            <p className="extra-info-leftside">
+              19:19 PM <br />
+              Sunset
+            </p>
           </div>
         </div>
       </article>
@@ -54,4 +53,6 @@ const Temp = () => {
   );
 };
 
-export default Temp;
+export default dynamic(() => Promise.resolve(Temp), {
+  ssr: false,
+});

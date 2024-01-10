@@ -160,7 +160,6 @@ body {
 .searchButton {
   width: 80px;
   height: 32px;
-  margin-top: 20px;
   border: none;
   background: #048b9c;
   text-align: center;
@@ -191,4 +190,4 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-} */        
+} */
