@@ -7,6 +7,6 @@ import Todo from "./component/todoreact/todo";
 import Temp from "./component/weather/temp";
 
 const Index = () => {
-  return <Temp />;
+  return <Todo />;
 };
 export default Index;

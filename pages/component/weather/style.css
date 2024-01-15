@@ -137,6 +137,7 @@ body {
 
 .search {
   width: 100%;
+  top: 20px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -154,12 +155,13 @@ body {
 }
 
 .searchTerm:focus {
-  color: #00b4cc;
+  color: #212424;
 }
 
 .searchButton {
   width: 80px;
-  height: 32px;
+  height: 46px;
+  margin-top: 20px;
   border: none;
   background: #048b9c;
   text-align: center;

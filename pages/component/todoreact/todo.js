@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 
 // get the local storage data back:-
 const getLocalData = () => {
@@ -13,7 +13,7 @@ const getLocalData = () => {
 };
 
 const Todo = () => {
-  const [inputdata, setInputdata] = useState(" ");
+  const [inputdata, setInputdata] = useState("");
   const [items, setItems] = useState(getLocalData());
   const [isEditItem, setIsEditItem] = useState(" ");
   const [toggleButton, setToggleButton] = useState(false);
@@ -31,7 +31,7 @@ const Todo = () => {
           return curElem;
         })
       );
-      setInputdata(" ");
+      setInputdata("");
       setIsEditItem(null);
       setToggleButton(false);
     } else {
@@ -40,7 +40,7 @@ const Todo = () => {
         name: inputdata,
       };
       setItems([...items, myNewInputData]);
-      setInputdata(" ");
+      setInputdata("");
     }
   };
 
@@ -89,17 +89,17 @@ const Todo = () => {
               onChange={(event) => setInputdata(event.target.value)}
             ></input>
             {/* toggle button */}
-            {toggleButton ? (
+            {/* {toggleButton ? (
               <i
                 className="fa-solid fa-pen-to-square add-btn"
                 onClick={addItem}
               ></i>
             ) : (
               <i className="fa-solid fa-plus add-btn" onClick={addItem}></i>
-            )}
+            )} */}
             <i
               className="fa-solid fa-plus"
-              style={{ background: "white" }}
+              style={{ fontSize: 18, marginRight: 15 }}
               onClick={addItem}
             ></i>
           </div>
@@ -108,19 +108,23 @@ const Todo = () => {
           <div className="showItems">
             {items.map((curElem) => {
               return (
-                <div className="eachItem" key={curElem.id}>
-                  <h3>{curElem.name}</h3>
-                  <div className="todo-btn">
-                    <i
-                      className="fa-solid fa-pen-to-square add-btn"
-                      onClick={() => editItem(curElem.id)}
-                    ></i>
-                    <i
-                      className="fa-solid fa-trash add-btn"
-                      onClick={() => deleteItem(curElem.id)}
-                    ></i>
+                <Fragment key={curElem.id}>
+                  <div className="eachItem">
+                    <h3>{curElem.name}</h3>
+                    <div className="todo-btn">
+                      <i
+                        className="fa-solid fa-pen-to-square add-btn"
+                        style={{ fontSize: 18 }}
+                        onClick={() => editItem(curElem.id)}
+                      ></i>
+                      <i
+                        className="fa-solid fa-trash add-btn"
+                        style={{ fontSize: 18 }}
+                        onClick={() => deleteItem(curElem.id)}
+                      ></i>
+                    </div>
                   </div>
-                </div>
+                </Fragment>
               );
             })}
           </div>
